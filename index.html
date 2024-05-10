@@ -19,6 +19,13 @@
     <p id="output_area"></p>
 
     <py-script>
+        import pyodide
+await pyodide.loadPyodide()
+await pyodide.runPythonAsync(`
+    import micropip
+    await micropip.install('pandas')
+`)
+
         import pandas as pd
         import difflib
         from sklearn.feature_extraction.text import TfidfVectorizer
